@@ -121,7 +121,7 @@ export default function() {
 
     const scriptFilepath = `${bareFilepath}.js`
 
-    const webpackScriptUrl = process.env.NODE_ENV == "development" ? path.join("https://localhost:3001/", scriptFilepath) : scriptFilepath
+    const webpackScriptUrl = process.env.NODE_ENV == "development" ? path.join("https://localhost:3001/", scriptFilepath) : Remove.path(scriptFilepath)
     const webpackScript = `<script src="${webpackScriptUrl}" async defer></script>`;
 
     pushScriptName(scriptFilepath)
