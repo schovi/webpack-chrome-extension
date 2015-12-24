@@ -15,10 +15,10 @@ export default function(manifest, {buildPath}) {
   const scripts = []
 
   // Browser action
-  process({action: browser_action, buildPath, scripts})
+  if(browser_action) process({action: browser_action, buildPath, scripts})
 
   // Page action
-  process({action: page_action, buildPath, scripts})
+  if(page_action) process({action: page_action, buildPath, scripts})
 
-  return {scripts}
+  return { scripts }
 }

@@ -20,6 +20,8 @@ import Manifest from './dev-env/manifest'
 import overrideHotUpdater from './dev-env/lib/override_hot_updater'
 import * as paths from './dev-env/paths'
 
+let manifest
+const chromeBinaryPath = '/opt/homebrew-cask/Caskroom/google-chrome/latest/Google Chrome.app/Contents/MacOS/Google Chrome'
 
 // Program
 
@@ -29,15 +31,14 @@ const args = yargs
 
 gulp.task('env', () => {
   const env = args.production ? 'production' : 'development';
-  process.env.NODE_ENV = env; // eslint-disable-line no-undef
+  // eslint-disable-line no-undef
+  process.env.NODE_ENV = env;
 });
 
-// gulp.task('test-manifest', () => {
-//   const watcher = new Manifest(paths.manifest)
-//   watcher.watch()
-// })
-
-let manifest
+gulp.task('test-manifest', () => {
+  const watcher = new Manifest(paths.manifest)
+  watcher.watch()
+})
 
 gulp.task('manifest', () => {
   manifest = new Manifest(paths.manifest)
@@ -69,9 +70,6 @@ gulp.task('development', (done) => {
 })
 
 gulp.task('extension', (done) => {
-  // TODO detect system and Chrome path
-  const chromeBinaryPath = '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
-
   setTimeout(() => {
     console.log(clc.yellow(`Building extension into '${paths.releaseBuild}'`))
     exec(`\$('${chromeBinaryPath}' --pack-extension=${paths.releaseBuild})`, (error, stdout, stderr) => {
@@ -88,7 +86,6 @@ gulp.task('extension', (done) => {
 
       done()
     })
-  // Long enought to prevent some unexpected errors
   }, 1000)
 })
 
@@ -101,7 +98,7 @@ gulp.task('prepare-release-dir', (done) => {
 })
 
 gulp.task('production', (done) => {
-  runSequence('prepare-release-dir', 'manifest', 'webpack-production', 'extension', done)
+  runSequence('prepare-release-dir','test-manifest', 'manifest', 'webpack-production', 'extension', done)
 })
 
 gulp.task('run', (done) => {
