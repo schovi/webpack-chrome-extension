@@ -1,0 +1,10 @@
+{
+  "extName" : {
+    "message" : "Chrome Extension",
+    "description" : "Extension name"
+  },
+  "extDescription" : {
+    "message" : "Extension for Chrome browser...",
+    "description" : "Extension description"
+  }
+}
