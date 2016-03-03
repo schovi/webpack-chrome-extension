@@ -19,6 +19,7 @@
   "chrome_url_overrides" : {
     "newtab": "newtab/index.html"
   },
+  "options_page" : "options/index.html",
   "permissions": [
     "background",
     "tabs"
