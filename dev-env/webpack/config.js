@@ -75,6 +75,11 @@ function configGenerator(Manifest) {
             NODE_ENV: JSON.stringify(isDevelopment ? 'development' : 'production'),
             IS_BROWSER: true
           }
+        }),
+        new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery",
+          "window.jQuery": "jquery"
         })
       ];
 
