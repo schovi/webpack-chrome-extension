@@ -7,6 +7,7 @@ import Content     from './processor/content'
 import Overrides   from './processor/overrides'
 import Locales   from './processor/locales'
 import Options   from './processor/options'
+import War   from './processor/war'
 
 const processors = [
     // Fix csp for devel
@@ -27,6 +28,8 @@ const processors = [
     Locales,
     // Process options page
     Options
+    // Process Web accessible resources
+    War
 ]
 
 export default processors
