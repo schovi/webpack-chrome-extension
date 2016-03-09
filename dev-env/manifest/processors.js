@@ -27,7 +27,7 @@ const processors = [
     // Process locales
     Locales,
     // Process options page
-    Options
+    Options,
     // Process Web accessible resources
     War
 ]
