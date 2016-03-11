@@ -1,28 +1,40 @@
 {
   "manifest_version": 2,
   "homepage_url": "https://github.com/schovi/webpack-chrome-extension",
-  "default_locale" : "en",
+  "default_locale": "en",
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content/index.js"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "shared/worker.js",
+        "content/index.js"
+      ]
     }
   ],
   "background": {
     "persistent": true,
-    "scripts": ["background/index.js"]
+    "scripts": [
+      "shared/worker.js",
+      "background/index.js"
+    ]
   },
   "page_action": {
     "default_title": "Webpack chrome extension popup action",
     "default_popup": "popup/index.html"
   },
-  "chrome_url_overrides" : {
+  "chrome_url_overrides": {
     "newtab": "newtab/index.html"
   },
-  "options_page" : "options/index.html",
+  "options_page": "options/index.html",
   "permissions": [
     "background",
     "tabs"
+  ],
+  "web_accessible_resources": [
+    "shared/worker_proxy.html",
+    "shared/worker.js"
   ],
   "icons": {
     "16": "icons/webpack-16.png",
