@@ -8,7 +8,7 @@
         "<all_urls>"
       ],
       "js": [
-        "shared/worker.js",
+        "shared/worker_proxy.js",
         "content/index.js"
       ]
     }
@@ -16,7 +16,7 @@
   "background": {
     "persistent": true,
     "scripts": [
-      "shared/worker.js",
+      "shared/worker_proxy.js",
       "background/index.js"
     ]
   },
