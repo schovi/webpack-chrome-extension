@@ -29,12 +29,14 @@
   },
   "options_page": "options/index.html",
   "permissions": [
+    "https://www.google-analytics.com/*",
     "background",
     "tabs"
   ],
   "web_accessible_resources": [
     "shared/worker_proxy.html",
-    "shared/worker.js"
+    "shared/worker.js",
+    "shared/google-analytics-bundle.js"
   ],
   "icons": {
     "16": "icons/webpack-16.png",

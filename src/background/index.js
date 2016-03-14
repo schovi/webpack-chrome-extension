@@ -1,29 +1,31 @@
-import welcome from 'shared/welcome'
 
-welcome('background/index.js')
+/*
+ const _AnalyticsCode = 'UA-74453743-1';
+ let service, tracker;
 
-// Setting popup icon
+ var importScript = (function (oHead) {
+ //window.analytics = analytics;
+ function loadError(oError) {
+ throw new URIError("The script " + oError.target.src + " is not accessible.");
+ }
 
-// When we defined browser_action
-if(chrome.browserAction) {
-  chrome.browserAction.setIcon({
-    path: require("icons/webpack-38.png")
-  })
+ return function (sSrc, fOnload) {
+ var oScript = document.createElement("script");
+ oScript.type = "text\/javascript";
+ oScript.onerror = loadError;
+ if (fOnload) {
+ oScript.onload = fOnload;
+ }
+ oHead.appendChild(oScript);
+ oScript.src = sSrc;
+ }
 
-// When we defined page_action
-} else if(chrome.pageAction) {
+ })(document.head || document.getElementsByTagName("head")[0]);
 
-  const showPageAction = function(tabId) {
-    chrome.pageAction.show(tabId);
-
-    chrome.pageAction.setIcon({
-      path: require("icons/webpack-38.png"),
-      tabId: tabId
-    })
-  }
-
-  // Show page action on each page update
-  chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-    showPageAction(tabId)
-  });
-}
+ importScript(chrome.runtime.getURL('shared/google-analytics-bundle.js'), function () {
+ console.info('google analytics platform loaded...');
+ service = analytics.getService('instagram_easy_downloader');
+ tracker = service.getTracker(_AnalyticsCode);
+ tracker.sendAppView('App view');
+ });
+ */
