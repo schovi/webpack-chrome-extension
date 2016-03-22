@@ -1,7 +1,7 @@
 {
-  "name": "WebpackChromeExtension",
-  "version": "0.3.1",
-  "description": "Bootstrap playground for developing Chrome extensions with all new features like Webpack, Babel, React and almost everything you want.",
+  "name": "__MSG_extName__",
+  "version": "0.0.1",
+  "description": "__MSG_extDescription__",
   "private": true,
   "scripts": {
     "start": "npm run dev",
