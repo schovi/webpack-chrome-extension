@@ -10,7 +10,7 @@ const process = function({action: {default_popup} = {}, buildPath, scripts}) {
 
 export default function(manifest, {buildPath}) {
 
-  const {browser_action, page_action} = manifest
+  const {browser_action, page_action, default_popup} = manifest
 
   const scripts = []
 
@@ -19,6 +19,9 @@ export default function(manifest, {buildPath}) {
 
   // Page action
   process({action: page_action, buildPath, scripts})
+
+  // Default popup
+  process({action: default_popup, buildPath, scripts})
 
   return {scripts}
 }
