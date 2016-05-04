@@ -45,6 +45,10 @@ export default function(manifest, {buildPath}) {
     _.forEach(manifest.icons, (iconPath, name) => processAsset(manifest.icons, name, buildPath))
   }
 
+  if (manifest.browser_action && manifest.browser_action.default_icon) {
+    processAsset(manifest.browser_action, 'default_icon', buildPath)
+  }
+
   // TODO can there be more assets?
 
   return {manifest}
