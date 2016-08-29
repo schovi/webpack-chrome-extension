@@ -1,5 +1,11 @@
 # Webpack Chrome extension
 
+# IMPORTANT!!!
+
+I am leaving this project in favor of [Create Chrome Extension](https://github.com/schovi/create-chrome-extension). It is standalone npm package and should be more maintanable.
+
+## Description
+
 Bootstrap project for developing any kind Chrome extensions with all javascript features like [NPM packages](https://www.npmjs.com/), [Webpack](http://webpack.github.io/), [Babel](https://babeljs.io/), [React](https://facebook.github.io/react/) and almost everything you want.
 
 **Turn this**
