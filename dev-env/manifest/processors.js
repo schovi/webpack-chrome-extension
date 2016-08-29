@@ -2,6 +2,7 @@ import Csp         from './processor/csp'
 import PackageJson from './processor/package_json'
 import Assets      from './processor/assets'
 import Action      from './processor/action'
+import Options     from './processor/options'
 import Background  from './processor/background'
 import Content     from './processor/content'
 import Overrides   from './processor/overrides'
@@ -21,7 +22,9 @@ const processors = [
   // Process content script
   Content,
   // Process overrides
-  Overrides
+  Overrides,
+  // Process options
+  Options,
 ]
 
 export default processors
