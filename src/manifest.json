@@ -1,26 +1,42 @@
 {
   "manifest_version": 2,
-  "homepage_url": "https://github.com/schovi/webpack-chrome-extension",
+  "homepage_url": "http://extensions.space",
+  "default_locale": "en",
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content/index.js"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "shared/worker_proxy.js",
+        "content/index.js"
+      ]
     }
   ],
   "background": {
     "persistent": true,
-    "scripts": ["background/index.js"]
+    "scripts": [
+      "shared/worker_proxy.js",
+      "background/index.js"
+    ]
   },
   "page_action": {
-    "default_title": "Webpack chrome extension popup action",
+    "default_title": "__MSG_extName__",
     "default_popup": "popup/index.html"
   },
-  "chrome_url_overrides" : {
+  "chrome_url_overrides": {
     "newtab": "newtab/index.html"
   },
+  "options_page": "options/index.html",
   "permissions": [
+    "https://www.google-analytics.com/*",
     "background",
     "tabs"
+  ],
+  "web_accessible_resources": [
+    "shared/worker_proxy.html",
+    "shared/worker.js",
+    "shared/google-analytics-bundle.js"
   ],
   "icons": {
     "16": "icons/webpack-16.png",
