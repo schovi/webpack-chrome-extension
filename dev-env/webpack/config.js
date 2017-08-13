@@ -1,9 +1,8 @@
-import fs from "fs";
+import BabiliPlugin from 'babili-webpack-plugin';
 import path from "path"
 import { execSync } from "child_process";
 import webpack from 'webpack';
-import _ from 'lodash';
-import * as Remove from '../util/remove'
+
 import * as paths from '../paths'
 import ManifestPlugin from '../manifest/plugin'
 
@@ -94,12 +93,7 @@ function configGenerator(Manifest) {
       } else {
         // Production plugins for optimizing code
         plugins = plugins.concat([
-          new webpack.optimize.UglifyJsPlugin({
-            compress: {
-              // Because uglify reports so many irrelevant warnings.
-              warnings: false
-            }
-          }),
+          new BabiliPlugin(),
           new webpack.optimize.DedupePlugin(),
           // new webpack.optimize.LimitChunkCountPlugin({maxChunks: 15}),
           // new webpack.optimize.MinChunkSizePlugin({minChunkSize: 10000}),
